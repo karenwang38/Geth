@@ -1,0 +1,80 @@
+//Mainnet
+geth console
+
+//Ropston
+geth --testnet
+geth attach ipc:./.ethereum/testnet/geth.ipc (another terminal)
+
+//Private net
+geth --dev --rpc --rpccprsdomain="*" --datadir ./<location> console
+
+
+eth.blockNumber
+eth.syncing
+eth.accounts
+personal.newAccount("your password")
+eth.getBalance(eth.accounts[0])
+web3.fromWei(eth.getBalance(eth.accounts[0]))
+miner.start()
+miner.stop()
+eth.coinbase
+eth.getTransaction("交易id");
+
+
+執行合約Function
+Contract.合約Function(參數, {from: web3.eth.accounts[0], gas: 111700})
+第二個 gas 參數指的是 gas Limit
+
+發送交易
+eth.sendTransaction({from: eth.coinbase, to: eth.accounts[1], value: web3.toWei(0.05, "ether")})
+
+執行 Payable Function
+Contract.buy({
+  from: "some address",
+  value: web3.toWei('0.1', 'ether')
+  },function(e, r){
+    if(!e) console.log(r)
+})
+
+取得目前鏈上的Gas Price
+web3.eth.getGasPrice(function(err, result) {console.log(result)})
+
+
+檢查連線
+web3.isConnected()
+
+範例:
+if(!web3.isConnected()) {
+   // 尚未連線到節點
+} else {
+   // 與節點連線中
+}
+
+讀取目前預設帳號
+	web3.eth.defaultAccount
+
+如果要修改預設帳號直接輸入以下，並且在等號後面加上 <帳號> 即可
+	web3.eth.defaultAccount = "0x76d87e6a4069e4a463ec6a1eb7b73738282906d5"
+改變defaultAccount後 coinbase 帳號也會跟著變，coinbase帳號是指挖礦後的獎勵會分配給哪個帳號。
+	web3.eth.coinbase
+
+解鎖帳號
+使用密碼將帳號解鎖，之後才能進行相關操作。
+personal.unlockAccount(address, passphrase, duration)
+
+取得特定地址發送過多少交易
+web3.eth.getTransactionCount(地址)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
