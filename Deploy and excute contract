@@ -3,5 +3,5 @@
 
 
 //excute contract
-var SimpleStorage = eth.comtract(ABI).at(contract address) //
+var SimpleStorage = eth.contract(ABI).at(contract address) //
 SimpleStorage.get()
