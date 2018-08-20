@@ -14,11 +14,15 @@ eth.syncing
 eth.accounts
 personal.newAccount("your password")
 eth.getBalance(eth.accounts[0])
-web3.fromWei(eth.getBalance(eth.accounts[0]))
+
 miner.start()
 miner.stop()
 eth.coinbase
 eth.getTransaction("交易id");
+
+//check eth balance
+web3.formWei(eth.getBalance(eth.account[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[0]))
 
 //import account
 personal.importRawKey(private, password);
@@ -44,6 +48,11 @@ web3.eth.getGasPrice(function(err, result) {console.log(result)})
 
 //檢查連線
 web3.isConnected()
+
+//取得特定地址發送過多少交易
+web3.eth.getTransactionCount(地址)
+
+
 
 範例:
 if(!web3.isConnected()) {

@@ -1,0 +1,7 @@
+//deploy contract
+1. post "WEB3DEPLOY" from Remix to Geth console
+
+
+//excute contract
+var SimpleStorage = eth.comtract(ABI).at(contract address) //
+SimpleStorage.get()
